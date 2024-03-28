@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainInput from "../components/MainInput/MainInput.jsx";
+import CircularLoader from "../commons/CircularLoader";
+---
+
+<Layout title="Url builder">
+  <main class="dark min-h-screen">
+    <section class="container mx-auto p-16">
+      <div class="text-white font-bold mb-4 text-2xl">Free URL Shortener</div>
+      <div class="text-white my-4 font-ligth">
+        Create short & memorable links in seconds.
+      </div>
+      <MainInput client:visible />
+      <CircularLoader client:visible />
+    </section>
+  </main>
+</Layout>
