@@ -10,9 +10,7 @@ const MainInput = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit");
     const data = await fetchData(typedUrl);
-    console.log("@DATA", data);
     shortUrl.set(data);
   };
 
@@ -26,9 +24,6 @@ const MainInput = () => {
     });
     return data;
   };
-  useEffect(() => {
-    console.log("typedUrl", typedUrl);
-  });
 
   return (
     <div>
@@ -43,7 +38,7 @@ const MainInput = () => {
           label="Your URL"
           value={typedUrl}
         />
-        <Input type="submit" value="Make it short" className="ml-4">
+        <Input type="submit" value="Make it short" className="ml-4 w-1/5">
           Make it short
         </Input>
       </form>

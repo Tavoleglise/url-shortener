@@ -1,3 +1,3 @@
 import { atom } from "nanostores";
 
-export const shortUrllloa = atom("");
+export const shortUrl = atom("");

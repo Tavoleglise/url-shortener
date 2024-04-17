@@ -3,17 +3,19 @@ import CircularLoader from "../../commons/CircularLoader";
 import { useStore } from "@nanostores/react";
 import { shortUrl } from "../../store/url-store";
 
-const UrlResponseSection = ({ data = "hola" }) => {
+const UrlResponseSection = () => {
   const $shortUrl = useStore(shortUrl);
-  const [url, setUrl] = useState("");
   useEffect(() => {
-    console.log("QSHORTURL", $shortUrl);
+    console.log("shortUrl", $shortUrl);
   }, [$shortUrl]);
   return (
     <div className="width-full flex justify-center p-16">
-      {(data && (
+      {($shortUrl && (
         <div className="text-white">
-          <a href={url}>{url}</a>
+          <a
+            target="_blank"
+            href={`http://localhost:3000/url/${$shortUrl.code}`}
+          >{`http://localhost:3000/url/${$shortUrl.code}`}</a>
         </div>
       )) || <CircularLoader />}
     </div>
