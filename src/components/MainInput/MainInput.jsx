@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import Input from "../../commons/Input";
 import { request } from "../../utils";
 import { useStore } from "@nanostores/react";
-import { shortUrl } from "../../store/url-store";
+import { shortUrl, loading } from "../../store/url-store";
 
 const MainInput = () => {
   const [typedUrl, setTypedUrl] = useState("");
-  const $shortUrl = useStore(shortUrl);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    loading.set(true);
     const data = await fetchData(typedUrl);
     shortUrl.set(data);
+    loading.set(false);
   };
 
   const handleChange = (e) => {
